@@ -23,7 +23,7 @@ jobs:
         run: npm install && npm run test
 
       - name: Build react app
-        run: REACT_APP_API_KEY = ${{ secrets.API_KEY }} npm run build
+        run: REACT_APP_API_KEY=${{ secrets.API_KEY }} npm run build
 
       - name: deploy files to S3
         run: aws s3 sync ./build/ s3://${{ secrets.BUCKET }} --delete
